@@ -1,8 +1,8 @@
 /** GLOBAL **/
 
 :root {
-  --colorPrimary: #62495b;
-  --colorGreen: #1ee000;
+  --colorPrimary: #026888;
+  --colorSecond: #ff7f00;
 }
 
 body {
@@ -17,6 +17,7 @@ h3,
 h6 {
   color: var(--colorPrimary);
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 ul {
@@ -34,10 +35,6 @@ p {
   margin: 0px;
 }
 
-label {
-  font-weight: 600;
-}
-
 table {
   background: #fff !important;
 }
@@ -47,15 +44,15 @@ table {
 }
 
 .btn-prin {
-  background: var(--colorPrimary);
-  border: 1px solid var(--colorPrimary);
+  background: var(--colorSecond);
+  border: 1px solid var(--colorSecond);
   padding: 5px 10px;
   transition: all 0.3s ease;
 }
 
 .btn-new-from {
-  background: var(--colorPrimary);
-  border: 1px solid var(--colorPrimary);
+  background: var(--colorSecond);
+  border: 1px solid var(--colorSecond);
   padding: 5px 10px;
   transition: all 0.3s ease;
 }
@@ -91,6 +88,16 @@ table {
 
 .titleController {
   margin-bottom: 50px;
+}
+
+.info-inactive {
+  margin: 20px 0px;
+}
+
+.info-inactive label,
+.label-inactive {
+  font-weight: 100;
+  color: gray;
 }
 
 .titleControllerMb10 {
@@ -278,6 +285,7 @@ table {
   text-decoration: none;
   width: 100%;
   align-items: center;
+  line-height: 13px;
 }
 
 .navbarleft ul li:hover,

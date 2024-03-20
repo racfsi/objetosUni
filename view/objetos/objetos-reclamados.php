@@ -1,12 +1,9 @@
 <?php
 ?>
-<div class="col-md-12 text-center">
-    <h3 class="text-center">Objetos sin reclamar</h3>
-    <div class="col-md-3 mb-4 btn-new-from">
-        <a href="?c=objetos&a=new">Nuevo Objeto<i class="fas fa-plus"></i></a>
-    </div>
+<div class="col-md-12 text-center bm-4">
+    <h3 class="text-center">Objetos reclamados</h3>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 mt-4">
     <table class="table table-bordered table-hover" id="tabla">
         <thead class="thead-dark">
             <tr>
@@ -24,10 +21,10 @@
                 <tr>
                     <td class="text-center align-middle"><?= $v['id']; ?></td>
                     <td class="text-center align-middle"><?= $v['nombre']; ?></td>
-                    <td class="text-center align-middle">Sin reclamar</td>
+                    <td class="text-center align-middle">Reclamado</td>
                     <td class="text-center align-middle"><img src="images/<?= $v['url_img'] ?> " alt="<?= $v['nombre']; ?>" width="140px"></td>
                     <td class="text-center align-middle">
-                        <a class="btn btn-link" style="padding: 0px;" href="?c=objetos&a=new&id=<?= $v['id']; ?>">Ver más</a>
+                        <a class="btn btn-link" style="padding: 0px;" href="?c=objetos&a=new&id=<?= $v['id']; ?>&status=0">Ver más</a>
                     </td>
                 </tr>
             <?php

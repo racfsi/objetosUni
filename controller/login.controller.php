@@ -11,8 +11,8 @@ class LoginController
 	public function Ingresar()
 	{
 		$login = new Login();
-		if (isset($_REQUEST['nombre_us'])) {
-			$login = $this->model->Ingreso($_REQUEST['nombre_us'],$_REQUEST['clave_us']);			
+		if (isset($_REQUEST['correo_us'])) {
+			$login = $this->model->Ingreso($_REQUEST['correo_us'],$_REQUEST['clave_us']);			
 		}
 		return $login;
     }

@@ -3,28 +3,37 @@ jQuery(function ($) {
   //SAVE DATA | WEEKS FORM
   $("#frm-newuser").submit(function (e) {
     e.preventDefault();
-    var clave1 = $("#clave_us").val();
-    var clave2 = $("#clave_us2").val();
-    if (clave1 != clave2) {
-      alert("Las contraseñas son diferentes. Por favor intente nuevamente");
-    } else {
-      $.ajax({
-        type: "POST",
-        url: "index.php?c=ajax&a=SaveUser",
-        data: $("#frm-newuser").serialize(),
-        dataType: "json",
-        beforeSend: function (e) {
-          respAjaxBefore();
-        },
-      })
-        .done(function (e) {
-          respAjaxDone();
-          window.location.replace("index.php?c=objetos");
-        })
-        .fail(function (e) {
-          console.log(e);
-          respAjaxFail();
-        });
+    var email = $("#correo_us").val();
+    if (email != "") {
+      var emailOk = emailValidate(email);
+      if (emailOk) {
+        var clave1 = $("#clave_us").val();
+        var clave2 = $("#clave_us2").val();
+        if (clave1 != clave2) {
+          alert("Las contraseñas son diferentes. Por favor intente nuevamente");
+        } else {
+          $.ajax({
+            type: "POST",
+            url: "index.php?c=ajax&a=SaveUser",
+            data: $("#frm-newuser").serialize(),
+            dataType: "json",
+            beforeSend: function (e) {
+              respAjaxBefore();
+            },
+          })
+            .done(function (e) {
+              respAjaxDone();
+              alert('Usuario creado con éxito, por favor ingresar.')
+              window.location.replace("cerrarsesion.php");
+            })
+            .fail(function (e) {
+              console.log(e);
+              respAjaxFail();
+            });
+        }
+      }else{
+        alert("El correo no pertenece a la universidad");
+      }
     }
   });
   $("#frm-newobject").submit(function (e) {
@@ -52,6 +61,26 @@ jQuery(function ($) {
         respAjaxFail();
       });
   });
+  $("body").on("click", "#testEmail", function (e) {
+    $.ajax({
+      type: "POST",
+      url: "index.php?c=ajax&a=sendMail",
+    })
+      .done(function (e) {
+        console.log(e);
+      })
+      .fail(function (e) {
+        console.log(e);
+      });
+  });
+  function emailValidate(email) {
+    var emailHost = email.substr(-1 * (email.length - email.indexOf("@") - 1));
+    if (emailHost == "amigo.edu.co") {
+      return true;
+    } else {
+      return false;
+    }
+  }
   //===================RESPUESTAS AJAX===================//
   // RESPONSE AJAX | BEFORE SEND
   function respAjaxBefore() {

@@ -7,8 +7,8 @@ $header = new HeaderController;
   <div class="form-login">
     <form action="checklogin.php" method="post" id="frm-guardar">
       <div class="form-group">
-        <label for="nombre_us" class="loginlabel">Correo</label>
-        <input type="text" class="form-control" id="nombre_us" name="nombre_us" placeholder="Ingrese Correo">
+        <label for="correo_us" class="loginlabel">Correo</label>
+        <input type="text" class="form-control" id="correo_us" name="correo_us" placeholder="Ingrese Correo">
       </div>
       <div class="form-group">
         <label for="clave_us" class="loginlabel">Contraseña</label>

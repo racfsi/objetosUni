@@ -5,11 +5,19 @@ $rol = $_SESSION['rol'];
 ?>
 <div class="navbarleft">
   <ul>
-    <li <?= ($c == 'objetos') ? 'class="active"' : '' ?>>
+    <li <?= ($c == 'objetos' && $a == '') ? 'class="active"' : '' ?>>
       <div class="content-menu">
         <a href="?c=objetos">
           <span><i class="fa fa-archive"></i></span>
-          Objetos
+          Objetos sin reclamar
+        </a>
+      </div>
+    </li>
+    <li <?= ($c == 'objetos' && $a == 'ObjetosReclamados') ? 'class="active"' : '' ?>>
+      <div class="content-menu">
+        <a href="?c=objetos&a=ObjetosReclamados">
+          <span><i class="fa fa-archive"></i></span>
+          Objetos reclamados
         </a>
       </div>
     </li>

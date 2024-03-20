@@ -21,10 +21,10 @@ class Objeto
         }
     }
 
-    public function Read()
+    public function ReadActivos()
     {
         try {
-            $stm = $this->pdo->prepare("SELECT * FROM objetos ORDER BY id");
+            $stm = $this->pdo->prepare("SELECT * FROM objetos WHERE estado = 1 ORDER BY id");
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
@@ -32,10 +32,32 @@ class Objeto
         }
     }
 
-    public function Get($id)
+    public function ReadInactivos()
     {
         try {
-            $stm = $this->pdo->prepare("SELECT * FROM objetos WHERE id_user = ? ORDER BY id");
+            $stm = $this->pdo->prepare("SELECT * FROM objetos WHERE estado = 0 ORDER BY id");
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function GetActivos($id)
+    {
+        try {
+            $stm = $this->pdo->prepare("SELECT * FROM objetos WHERE id_user = ? AND estado = 1 ORDER BY id");
+            $stm->execute(array($id));
+            return $stm->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function GetinActivos($id)
+    {
+        try {
+            $stm = $this->pdo->prepare("SELECT * FROM objetos WHERE id_user = ? AND estado = 0 ORDER BY id");
             $stm->execute(array($id));
             return $stm->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
@@ -65,6 +87,24 @@ class Objeto
                     $data->info,
                     $data->url_img,
                     $data->estado
+                )
+            );
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function Update(Objeto $data)
+    {
+        try {
+            $sql = "UPDATE objetos SET nombre = ?,info = ?,url_img = ?, estado = ? WHERE id=?";
+            $this->pdo->prepare($sql)->execute(
+                array(
+                    $data->nombre,
+                    $data->info,
+                    $data->url_img,
+                    $data->estado,
+                    $data->id
                 )
             );
         } catch (Exception $e) {

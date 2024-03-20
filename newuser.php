@@ -14,7 +14,7 @@ $header = new HeaderController;
             </div>
             <div class="form-group">
                 <label for="correo_us" class="loginlabel">Correo</label>
-                <input type="text" class="form-control" id="correo_us" name="correo_us" placeholder="Ingrese Correo" required>
+                <input type="email" class="form-control" id="correo_us" name="correo_us" placeholder="Ingrese Correo" required>
             </div>
             <div class="form-group">
                 <label for="clave_us" class="loginlabel">Contraseña</label>

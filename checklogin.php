@@ -1,6 +1,6 @@
 <?php
 require_once 'model/database.php';
-$user = $_POST['nombre_us'];
+$user = $_POST['correo_us'];
 $pass = $_POST['clave_us'];
 if (empty($user) || empty($pass)) {
     header("Location: login.php");
@@ -27,3 +27,5 @@ if ($resultado) {
     header("Location: login.php?error=2");
     exit();
 }
+// VALIDAMOS QUE EL CORREO CONTENGA EL DOMINIO DE LA UNIVERSIDAD @amigo.edu.co
+
