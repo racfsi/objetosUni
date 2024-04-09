@@ -1,7 +1,7 @@
 /** GLOBAL **/
 
 :root {
-  --colorPrimary: #026888;
+  --colorPrimary: #026788;
   --colorSecond: #ff7f00;
 }
 
@@ -149,10 +149,11 @@ table {
 }
 
 /*SECTION LOGIN*/
-
-.sectionlogin {
-  background: #000;
-  background-size: cover;
+.bodyLoginPage{
+  background: var(--colorPrimary) url('../img/images.png');
+  background-size: auto;
+}
+.sectionlogin {  
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -161,13 +162,15 @@ table {
 }
 
 .form-login {
-  width: 30%;
+  background: var(--colorPrimary);
+  width: 60%;
+  padding: 100px;
 }
 
 .loginlabel {
-  color: #fff;
+  color: white;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .sectionlogin .divinterna {
@@ -192,7 +195,24 @@ table {
   color: var(--colorPrimary);
   transition: 0.5;
 }
-
+.sectionlogin .btn-custom{
+  background: var(--colorSecond);
+  color: #fff;
+}
+.sectionlogin .btn-custom:hover{
+  border: 1px solid var(--colorSecond);
+  background: white;
+  color: var(--colorSecond);
+}
+.login-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+}
+.login-links a{
+  color: #fff;
+}
 /** NAV HEADER **/
 
 .nav-header {

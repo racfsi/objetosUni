@@ -1,5 +1,6 @@
 <?php
 $GLOBALS["v"] = 1;
+$pagePhp = basename($_SERVER['PHP_SELF'])
 ?>
 <!DOCTYPE html>
 
@@ -14,4 +15,4 @@ $GLOBALS["v"] = 1;
     <link rel="stylesheet" href="assets/css/style.css" rel="stylesheet"/>
 </head>
 
-<body>
+<body <?= ($pagePhp == 'login.php' || 'newuser.php') ? ' class="bodyLoginPage"' : ''?>>

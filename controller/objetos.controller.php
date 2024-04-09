@@ -12,23 +12,13 @@ class ObjetosController
 
 	public function Index()
 	{
-		if($_SESSION['rol'] == 1){
-			$objetos = $this->model->ReadActivos();
-		}else{
-			$iduser = $_SESSION['iduser'];
-			$objetos = $this->model->GetActivos($iduser);
-		}
+		$objetos = $this->model->ReadActivos();
 		require_once 'view/objetos/objetos.php';
 	}
 
 	public function ObjetosReclamados()
 	{
-		if($_SESSION['rol'] == 1){
-			$objetos = $this->model->ReadInactivos();
-		}else{
-			$iduser = $_SESSION['iduser'];
-			$objetos = $this->model->GetinActivos($iduser);
-		}
+		$objetos = $this->model->ReadInactivos();
 		require_once 'view/objetos/objetos-reclamados.php';
 	}
 

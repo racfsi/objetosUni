@@ -53,7 +53,7 @@ $rol = $_SESSION['rol'];
                 <?php if ($rol == 1) { ?>
                     <div class="form-group">
                         <select name="estado" id="estado">
-                            <option value="1">Reclamado</option>
+                            <option value="0">Reclamado</option>
                             <option value="1">Sin Reclamar</option>
                         </select>
                     </div>

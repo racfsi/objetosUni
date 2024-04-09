@@ -56,7 +56,7 @@ class AjaxController
         $obj->id_user = $_SESSION['iduser'];
         $obj->nombre = $_REQUEST['titulo'];
         $obj->info = $_REQUEST['info'];
-        $obj->estado = 1;
+        $obj->estado = $_REQUEST['estado'];
         $obj->url_img = $urlImg;
         if ($_REQUEST['action'] == 'new') {
             $objLoad->result = $this->modelObj->Crear($obj);

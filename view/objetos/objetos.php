@@ -2,11 +2,13 @@
 ?>
 <div class="col-md-12 text-center">
     <h3 class="text-center">Objetos sin reclamar</h3>
+    <?php if($_SESSION['rol'] == 1){?>
     <div class="col-md-3 mb-4 btn-new-from">
         <a href="?c=objetos&a=new">Nuevo Objeto<i class="fas fa-plus"></i></a>
     </div>
+    <?php } ?>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 mt-4">
     <table class="table table-bordered table-hover" id="tabla">
         <thead class="thead-dark">
             <tr>

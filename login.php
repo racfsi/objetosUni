@@ -16,7 +16,10 @@ $header = new HeaderController;
       </div>
       <div class="form-group text-center">
         <button type="submit" class="btn-custom">Ingresar</button>
+      </div>
+      <div class="form-group text-center login-links">
         <a href="newuser.php">Crear usuario</a>
+        <a href="reset-password.php">Olvidó su clave</a>
       </div>
     </form>
   </div>
